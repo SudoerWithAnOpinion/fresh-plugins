@@ -1,0 +1,88 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sinelaw/fresh/main/crates/fresh-editor/plugins/schemas/package.schema.json",
+  "name": "hcl",
+  "version": "1.0.0",
+  "description": "HashiCorp Configuration Language (HCL) and Terraform language pack",
+  "type": "bundle",
+  "author": "SudoerWithAnOpinion",
+  "license": "MIT",
+  "keywords": ["hcl", "terraform", "tfvars", "nomad", "vault", "hashicorp"],
+  "fresh": {
+    "languages": [
+      {
+        "id": "hcl",
+        "grammar": {
+          "file": "grammars/hcl.sublime-syntax",
+          "extensions": ["hcl"],
+          "shortName": "hcl"
+        },
+        "language": {
+          "commentPrefix": "#",
+          "blockCommentStart": "/*",
+          "blockCommentEnd": "*/",
+          "tabSize": 2,
+          "useTabs": false,
+          "autoIndent": true
+        }
+      },
+      {
+        "id": "terraform",
+        "grammar": {
+          "file": "grammars/terraform.sublime-syntax",
+          "extensions": ["tf"],
+          "shortName": "terraform"
+        },
+        "language": {
+          "commentPrefix": "#",
+          "blockCommentStart": "/*",
+          "blockCommentEnd": "*/",
+          "tabSize": 2,
+          "useTabs": false,
+          "autoIndent": true,
+          "formatter": {
+            "command": "terraform",
+            "args": ["fmt", "-"]
+          }
+        },
+        "lsp": {
+          "command": "terraform-ls",
+          "args": ["serve"],
+          "autoStart": true
+        }
+      },
+      {
+        "id": "terraform-vars",
+        "grammar": {
+          "file": "grammars/terraform-vars.sublime-syntax",
+          "extensions": ["tfvars", "tfbackend"],
+          "shortName": "tfvars"
+        },
+        "language": {
+          "commentPrefix": "#",
+          "blockCommentStart": "/*",
+          "blockCommentEnd": "*/",
+          "tabSize": 2,
+          "useTabs": false,
+          "autoIndent": true,
+          "formatter": {
+            "command": "terraform",
+            "args": ["fmt", "-"]
+          }
+        },
+        "lsp": {
+          "command": "terraform-ls",
+          "args": ["serve"],
+          "autoStart": true
+        }
+      },
+      {
+        "id": "terraform-plan",
+        "grammar": {
+          "file": "grammars/terraform-plan.sublime-syntax",
+          "extensions": ["tfplan"],
+          "shortName": "tfplan"
+        }
+      }
+    ]
+  }
+}
