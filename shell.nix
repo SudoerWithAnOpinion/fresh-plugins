@@ -7,5 +7,6 @@ pkgs.mkShell {
     unstable.fresh-editor
     python3
     (python3.withPackages (ps: with ps; [ jsonschema ]))
+    terraform-ls
   ];
 }
